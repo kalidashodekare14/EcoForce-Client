@@ -1,0 +1,7 @@
+.banner1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.37),rgba(0, 0, 0, 0.512),rgba(0,0,0,0.5)), url(../../../public/banner1.jpeg);
+}
+
+.banner2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.499),rgba(0, 0, 0, 0.407),rgba(0,0,0,0.5)), url(../../../public/banner2.jpeg);
+}
