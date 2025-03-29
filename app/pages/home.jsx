@@ -4,7 +4,7 @@ import OurPriorites from '../components/HomePage/Banner/OurPriorites/OurPriorite
 
 const homePage = () => {
   return (
-    <div>
+    <div className=''>
       <Banner />
       <OurPriorites />
     </div>
