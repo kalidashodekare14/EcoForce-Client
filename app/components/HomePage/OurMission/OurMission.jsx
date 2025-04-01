@@ -10,7 +10,7 @@ const OurMission = () => {
             </div>
             <div className='lg:w-[60%] space-y-3'>
                 <h1 className='text-3xl uppercase'>Our Mission & Vision</h1>
-                <h3>Our goal is to create a cleaner, greener, and more sustainable world where nature and humanity coexist in harmony. We are committed to environmental conservation through large-scale tree planting, efficient waste management, and impactful awareness programs to restore nature’s balance and reduce environmental degradation. Our mission is to take effective actions against climate change by promoting eco-friendly practices, advocating for sustainable policies, and encouraging community participation. Through education, innovation, and collective efforts, we aim to build a healthier planet for present and future generations.</h3>
+                <h3 className='text-[#4a4747]'>Our goal is to create a cleaner, greener, and more sustainable world where nature and humanity coexist in harmony. We are committed to environmental conservation through large-scale tree planting, efficient waste management, and impactful awareness programs to restore nature’s balance and reduce environmental degradation. Our mission is to take effective actions against climate change by promoting eco-friendly practices, advocating for sustainable policies, and encouraging community participation. Through education, innovation, and collective efforts, we aim to build a healthier planet for present and future generations.</h3>
                 <button className='btn bg-[#0077b6] text-white'>Learn More</button>
             </div>
         </div>

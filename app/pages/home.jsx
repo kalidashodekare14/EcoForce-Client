@@ -5,6 +5,7 @@ import OurMission from '../components/HomePage/OurMission/OurMission'
 import FascinatingFacts from '../components/HomePage/FascinatingFacts/FascinatingFacts'
 import OurTeam from '../components/HomePage/OurTeam/OurTeam'
 import Donate from '../components/HomePage/Donate/Donate'
+import UpCommingEvents from '../components/HomePage/UpCommingEvents/UpCommingEvents'
 
 const homePage = () => {
   return (
@@ -13,6 +14,7 @@ const homePage = () => {
       <OurMission />
       <OurPriorites />
       <Donate />
+      <UpCommingEvents />
       <FascinatingFacts />
       <OurTeam />
     </div>

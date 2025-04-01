@@ -6,8 +6,10 @@ import img3 from '../../../images/donate/img3.avif'
 const donatePage = () => {
     return (
         <div className='mx-32 my-20'>
-            <h1 className='text-center text-3xl my-10'>Support Our Cause</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+            <div className='flex justify-center items-center'>
+                <h1 className='text-3xl pb-2 border-b-2 border-[#0077b6]'>Support Our Cause</h1>
+            </div>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 my-10'>
                 <div className='flex flex-col justify-center items-center'>
                     <div className='w-full h-60'>
                         <img className='w-full h-full' src={img1} alt="" />
