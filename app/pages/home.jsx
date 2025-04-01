@@ -2,6 +2,8 @@ import React from 'react'
 import Banner from '../components/HomePage/Banner/Banner'
 import OurPriorites from '../components/HomePage/Banner/OurPriorites/OurPriorites'
 import OurMission from '../components/HomePage/OurMission/OurMission'
+import FascinatingFacts from '../components/HomePage/FascinatingFacts/FascinatingFacts'
+import OurTeam from '../components/HomePage/OurTeam/OurTeam'
 
 const homePage = () => {
   return (
@@ -9,6 +11,8 @@ const homePage = () => {
       <Banner />
       <OurMission />
       <OurPriorites />
+      <FascinatingFacts />
+      <OurTeam />
     </div>
   )
 }
