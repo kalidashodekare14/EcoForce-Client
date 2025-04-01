@@ -7,7 +7,7 @@ import { FaLocationDot } from 'react-icons/fa6'
 
 const UpCommingEvents = () => {
     return (
-        <div className='lg:mx-32 my-20'>
+        <div className='lg:mx-32 mx-3 my-20'>
             <div className='flex justify-center items-center'>
                 <h1 className='text-3xl pb-2 border-b-2 border-[#0077b6]'>Upcomming Events</h1>
             </div>

@@ -18,7 +18,7 @@ const FascinatingFacts = () => {
     }
 
     return (
-        <div className='flex justify-between items-center px-32 bgImage  h-80  bg-no-repeat bg-center bg-cover my-10 '>
+        <div className='grid grid-cols-2 lg:grid-cols-4 lg:px-32 bgImage  h-80  bg-no-repeat bg-center bg-cover my-10 '>
             <div className='flex flex-col justify-center items-center gap-2 text-white'>
                 <AiOutlineGlobal className='text-5xl' />
                 <p className='text-3xl'>

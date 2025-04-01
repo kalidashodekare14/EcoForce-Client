@@ -4,11 +4,10 @@ import img1 from '../../../../images/our_prioties/img1.png'
 import img2 from '../../../../images/our_prioties/img2.png'
 import img3 from '../../../../images/our_prioties/img3.png'
 import img4 from '../../../../images/our_prioties/img4.png'
-import UpCommingEvents from '../../UpCommingEvents/UpCommingEvents'
 
 const OurPriorites = () => {
   return (
-    <div className='my-10 lg:mx-32'>
+    <div className='my-10 lg:mx-32 mx-3'>
       <div className='flex justify-center items-center'>
         <h1 className='text-3xl pb-2 border-b-2 border-[#0077b6]'>Our Priorites</h1>
       </div>

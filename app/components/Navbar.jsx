@@ -33,7 +33,7 @@ const Navbar = () => {
         {
             id: 2,
             name: 'About Us',
-            route: '/about'
+            route: '/about_us'
         },
         {
             id: 3,
