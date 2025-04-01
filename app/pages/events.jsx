@@ -1,9 +1,10 @@
 import React from 'react'
+import EventsPage from '../components/EventsPage/EventsPage'
 
 const eventsPage = () => {
   return (
     <div>
-        <h1>Event Page</h1>
+      <EventsPage />
     </div>
   )
 }
