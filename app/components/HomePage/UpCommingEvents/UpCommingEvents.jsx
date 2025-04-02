@@ -17,7 +17,7 @@ const UpCommingEvents = () => {
                         <img className='w-full h-full' src={img1} alt="" />
                     </div>
                     <div className='space-y-3 mt-3'>
-                        <h1 className='text-2xl'>Tree Plantation Drive</h1>
+                        <h1 className='text-xl'>Tree Plantation Drive</h1>
                         <div className='flex items-center gap-3'>
                             <div className='text-[#4a4747] flex items-center gap-2'>
                                 <SlCalender />
@@ -40,7 +40,7 @@ const UpCommingEvents = () => {
                         <img className='w-full h-full' src={img2} alt="" />
                     </div>
                     <div className='space-y-3 mt-3'>
-                        <h1 className='text-2xl'>Beach Clean-up Campaign </h1>
+                        <h1 className='text-xl'>Beach Clean-up Campaign </h1>
                         <div className='flex items-center gap-3'>
                             <div className='text-[#4a4747] flex items-center gap-2'>
                                 <SlCalender />
@@ -63,7 +63,7 @@ const UpCommingEvents = () => {
                         <img className='w-full h-full' src={img3} alt="" />
                     </div>
                     <div className='space-y-3 mt-3'>
-                        <h1 className='text-2xl'>Climate Awareness Rally</h1>
+                        <h1 className='text-xl'>Climate Awareness Rally</h1>
                         <div className='flex items-center gap-3'>
                             <div className='text-[#4a4747] flex items-center gap-2'>
                                 <SlCalender />

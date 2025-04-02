@@ -14,26 +14,26 @@ const OurPriorites = () => {
       <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-10'>
         <div className='flex flex-col justify-center items-center gap-2'>
           <img className='w-20 h-20' src={img1} alt="" />
-          <h1 className='text-2xl'>Tree Plantation</h1>
-          <p className='text-center text-[#4a4747]'>Promoting afforestation to improve air quality and restore ecosystems.</p>
+          <h1 className='text-xl'>Tree Plantation</h1>
+          <p className='text-center text-[#4a4747] text-[15px]'>Promoting afforestation to improve air quality and restore ecosystems.</p>
           <button className='btn bg-[#0077b6] text-white'>Read More</button>
         </div>
         <div className='flex flex-col justify-center items-center gap-2'>
           <img className='w-20 h-20' src={img2} alt="" />
-          <h1 className='text-2xl'>Waste Management</h1>
-          <p className='text-center text-[#4a4747]'>Encouraging recycling and proper waste disposal to reduce pollution.</p>
+          <h1 className='text-xl'>Waste Management</h1>
+          <p className='text-center text-[#4a4747] text-[15px]'>Encouraging recycling and proper waste disposal to reduce pollution.</p>
           <button className='btn bg-[#0077b6] text-white'>Read More</button>
         </div>
         <div className='flex flex-col justify-center items-center gap-2'>
           <img className='w-20 h-20' src={img3} alt="" />
-          <h1 className='text-2xl'>Climate Action</h1>
-          <p className='text-center text-[#4a4747]'>Taking steps to combat climate change and promote sustainability.</p>
+          <h1 className='text-xl'>Climate Action</h1>
+          <p className='text-center text-[#4a4747] text-[15px]'>Taking steps to combat climate change and promote sustainability.</p>
           <button className='btn bg-[#0077b6] text-white'>Read More</button>
         </div>
         <div className='flex flex-col justify-center items-center gap-2'>
           <img className='w-20 h-20' src={img4} alt="" />
-          <h1 className='text-2xl'>Sustainable Living</h1>
-          <p className='text-center text-[#4a4747]'>Advocating eco-friendly habits for a healthier planet.</p>
+          <h1 className='text-xl'>Sustainable Living</h1>
+          <p className='text-center text-[#4a4747] text-[15px]'>Advocating eco-friendly habits for a healthier planet.</p>
           <button className='btn bg-[#0077b6] text-white'>Read More</button>
         </div>
       </div>

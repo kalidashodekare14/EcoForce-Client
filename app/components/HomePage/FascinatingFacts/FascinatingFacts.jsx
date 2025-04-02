@@ -18,33 +18,33 @@ const FascinatingFacts = () => {
     }
 
     return (
-        <div className='grid grid-cols-2 lg:grid-cols-4 lg:px-32 bgImage  h-80  bg-no-repeat bg-center bg-cover my-10 '>
+        <div className='grid grid-cols-2 lg:grid-cols-4 lg:px-32 bgImage  h-52  bg-no-repeat bg-center bg-cover my-10 '>
             <div className='flex flex-col justify-center items-center gap-2 text-white'>
-                <AiOutlineGlobal className='text-5xl' />
-                <p className='text-3xl'>
+                <AiOutlineGlobal className='text-4xl' />
+                <p className='text-2xl'>
                     <CountUp delay={2} end={10} />
                 </p>
-                <h1 className='text-xl'>Gloabal Work</h1>
+                <h1 className='text-[18px]'>Gloabal Work</h1>
             </div>
             <div className='flex flex-col justify-center items-center gap-2 text-white'>
-                <FaUsers className='text-5xl' />
-                <p className='text-3xl'>
+                <FaUsers className='text-4xl' />
+                <p className='text-2xl'>
                     <CountUp delay={2} end={2000} />
                 </p>
-                <h1 className='text-xl'>Donate to Support </h1>
+                <h1 className='text-[18px]'>Donate to Support </h1>
             </div>
             <div className='flex flex-col justify-center items-center gap-2 text-white'>
-                <IoRocket className='text-5xl' />
-                <p className='text-3xl'>
+                <IoRocket className='text-4xl' />
+                <p className='text-2xl'>
                     <CountUp delay={2} end={1500} />
                 </p>
-                <h1 className='text-xl'>Success Mission</h1>
+                <h1 className='text-[18px]'>Success Mission</h1>
             </div>
             <div className='flex flex-col justify-center items-center gap-2 text-white'>
-                <FaUserPlus className='text-5xl' />
-                <p className='text-3xl'>
+                <FaUserPlus className='text-4xl' />
+                <p className='text-2xl'>
                     <CountUp delay={2} end={3000} /></p>
-                <h1 className='text-xl'>Become a Volunteer </h1>
+                <h1 className='text-[18px]'>Become a Volunteer </h1>
             </div>
         </div>
     )
