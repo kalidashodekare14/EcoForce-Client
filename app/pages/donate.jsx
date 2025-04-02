@@ -1,9 +1,10 @@
 import React from 'react'
+import DonatePage from '../components/DonatePage/DonatePage'
 
 const donatePage = () => {
   return (
     <div>
-        <h1>Donate Page</h1>
+      <DonatePage />
     </div>
   )
 }

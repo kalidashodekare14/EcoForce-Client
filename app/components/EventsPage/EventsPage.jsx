@@ -102,7 +102,7 @@ const EventsPage = () => {
                     <span>Events</span>
                 </div>
             </div>
-            <div className='lg:mx-32 mx-3 grid grid-cols-1 lg:grid-cols-3 gap-5'>
+            <div className='lg:mx-32 mx-3 my-10 grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {eventsData.map(event => (
                     <div>
                         <div className='w-full h-60'>
