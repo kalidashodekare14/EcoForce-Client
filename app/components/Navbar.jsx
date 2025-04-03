@@ -68,8 +68,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div>
-                    
                     <FaBars onClick={handleToggle} className='lg:hidden' />
+                    <div>
+                        <Link to={'/login'}>
+                            <button className='btn bg-[#0077b6] text-white w-32'>Login</button>
+                        </Link>
+                    </div>
                 </div>
                 <ul className={`z-50 absolute left-0 p-5 lg:hidden  bg-[#307bc4] text-white w-full flex flex-col  gap-5 text-[19px] font-[300] translate-y-40 duration-700  ${toggle ? "translate-x-0" : "-translate-x-full"}`}>
                     {

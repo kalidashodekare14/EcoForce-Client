@@ -6,5 +6,7 @@ export default [
     route("events", "pages/events.jsx"),
     route("donate", "pages/donate.jsx"),
     route("contact", "pages/contact.jsx"),
+    route("signup", "pages/signup.jsx"),
+    route("login", "pages/login.jsx"),
 
 ] satisfies RouteConfig;
