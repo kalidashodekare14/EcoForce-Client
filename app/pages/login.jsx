@@ -1,13 +1,13 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { loginUser } from '../Redux/authSlice'
 
 const loginPage = () => {
 
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
 
   const {
     register,
@@ -15,13 +15,16 @@ const loginPage = () => {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
     const userInfo = {
       email: data.email,
       password: data.password
     }
-    dispatch(loginUser({ data: userInfo }))
+    const resultAction = await dispatch(loginUser({ data: userInfo }))
+    if (loginUser.fulfilled.match(resultAction)) {
+      navigate('/')
+    }
   }
 
   return (

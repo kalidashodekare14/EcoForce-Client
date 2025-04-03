@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axiosSecure from "../utils/axiosSecure";
+import Swal from "sweetalert2";
 
 
 export const loginUser = createAsyncThunk(
@@ -38,6 +39,13 @@ const authSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.loading = false
                 state.userData = action.payload
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your login successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false,
