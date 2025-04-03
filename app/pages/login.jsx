@@ -1,18 +1,27 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router'
+import { loginUser } from '../Redux/authSlice'
 
 const loginPage = () => {
+
+  const dispatch = useDispatch()
+
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm()
 
   const onSubmit = (data) => {
     console.log(data)
+    const userInfo = {
+      email: data.email,
+      password: data.password
+    }
+    dispatch(loginUser({ data: userInfo }))
   }
 
   return (
