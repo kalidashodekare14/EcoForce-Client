@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router'
+import useAuth from '../hooks/useAuth/useAuth'
+import { ImProfile } from 'react-icons/im'
+import { MdDashboardCustomize } from 'react-icons/md'
+import { IoLogOutOutline } from 'react-icons/io5'
 
 const Navbar = () => {
 
+    const { user } = useAuth()
     const [toggle, setToggle] = useState(false)
     const [isSticky, setIsSticky] = useState(false)
+    const [avatorToggle, setAvatorToggle] = useState(false)
     const pathname = useLocation()
     const handleToggle = () => {
         setToggle(!toggle)
     }
+
+    const handleAvatarToggle = () => {
+        setAvatorToggle(!avatorToggle)
+    }
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,9 +81,38 @@ const Navbar = () => {
                 <div>
                     <FaBars onClick={handleToggle} className='lg:hidden' />
                     <div>
-                        <Link to={'/login'}>
-                            <button className='btn bg-[#0077b6] text-white w-32'>Login</button>
-                        </Link>
+                        {
+                            user ? (
+                                <div className='relative'>
+                                    <div onClick={handleAvatarToggle} className="avatar-group -space-x-6 cursor-pointer">
+                                        <div className="avatar">
+                                            <div className="w-12">
+                                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={`${avatorToggle ? "opacity-100 duration-300" : "opacity-0 duration-300"} p-3 space-y-2  absolute -left-10 z-50 w-44  bg-white border border-[#bbb]`}>
+                                        <div className='cursor-pointer flex items-center gap-1'>
+                                            <span><ImProfile /></span>
+                                            <span>Profile</span>
+                                        </div>
+                                        <div className='cursor-pointer flex items-center gap-1'>
+                                            <span><MdDashboardCustomize /></span>
+                                            <span>Dasboard</span>
+                                        </div>
+                                        <div className='cursor-pointer flex items-center gap-1'>
+                                            <span><IoLogOutOutline /></span>
+                                            <span>Log Out</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Link to={'/login'}>
+                                    <button className='btn bg-[#0077b6] text-white w-32'>Login</button>
+                                </Link>
+                            )
+                        }
+
                     </div>
                 </div>
                 <ul className={`z-50 absolute left-0 p-5 lg:hidden  bg-[#307bc4] text-white w-full flex flex-col  gap-5 text-[19px] font-[300] translate-y-40 duration-700  ${toggle ? "translate-x-0" : "-translate-x-full"}`}>
@@ -84,8 +124,8 @@ const Navbar = () => {
                         ))
                     }
                 </ul>
-            </nav>
-        </div>
+            </nav >
+        </div >
     )
 }
 

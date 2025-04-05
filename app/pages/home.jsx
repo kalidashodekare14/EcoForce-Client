@@ -6,8 +6,11 @@ import FascinatingFacts from '../components/HomePage/FascinatingFacts/Fascinatin
 import OurTeam from '../components/HomePage/OurTeam/OurTeam'
 import Donate from '../components/HomePage/Donate/Donate'
 import UpCommingEvents from '../components/HomePage/UpCommingEvents/UpCommingEvents'
+import useAuth from '../hooks/useAuth/useAuth'
 
 const homePage = () => {
+
+
   return (
     <div className=''>
       <Banner />
