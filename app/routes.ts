@@ -8,5 +8,6 @@ export default [
     route("contact", "pages/contact.jsx"),
     route("signup", "pages/signup.jsx"),
     route("login", "pages/login.jsx"),
+    route("profile", "pages/profile.jsx"),
 
 ] satisfies RouteConfig;
