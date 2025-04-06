@@ -1,29 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FiEdit } from 'react-icons/fi'
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+import useAuth from '../hooks/useAuth/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { profileUpdate, profileData } from '../Redux/profileSlice'
+import { FaPhoneAlt } from 'react-icons/fa';
 
 const profile = () => {
 
+    const { user } = useAuth()
     const [open, setOpen] = useState(false);
-
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
     const genderData = ["Male", "Female", "Others"];
     const [selectedGender, setSelectedGender] = useState(null)
+    const dispatch = useDispatch()
+    const { userData, loading, error } = useSelector((state) => state.profile)
+
+    console.log('checking', userData)
+
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    useEffect(() => {
+        dispatch(profileData({ email: user }))
+    }, [user])
+
 
     const onSubmit = data => {
         console.log(data);
         const profileData = {
             name: data.name,
-            phone_number: data.phone_number,
+            phone_number: parseInt(data.phone_number),
             address: data.address,
             gender: selectedGender,
             date_of_birth: data.date_of_birth
         }
-        console.log('checking data', profileData)
+        dispatch(profileUpdate({ email: user, data: profileData }))
     }
 
 
@@ -39,15 +54,58 @@ const profile = () => {
                 </div>
                 <div className='mx-5 my-3 space-y-1 flex justify-between'>
                     <div>
-                        <h1 className='text-2xl font-bold'>Kalidash Odekare</h1>
-                        <p className='text-[15px]'>kalidashodekare14@gmail.com</p>
+                        <h1 className='text-2xl font-bold'>{userData?.name || "N/A"}</h1>
+                        <p className='text-[15px]'>{userData?.email || "N/A"}</p>
                     </div>
                     <div onClick={onOpenModal} className='bg-[#bbb] w-10 h-10 rounded-full flex justify-center items-center'>
                         <FiEdit className='cursor-pointer text-2xl' />
                     </div>
                 </div>
-                <div>
-
+                <div className='mx-5 py-3 grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                    {
+                        userData?.phone_number && (
+                            <div className='flex flex-col'>
+                                <span className='flex items-center gap-1'>
+                                    {/* <FaPhoneAlt /> */}
+                                    Phone number
+                                </span>
+                                <span className='border border-[#bbb] p-2'>{userData?.phone_number || "N/A"}</span>
+                            </div>
+                        )
+                    }
+                    {
+                        userData?.gender && (
+                            <div className='flex flex-col'>
+                                <span className='flex items-center gap-1'>
+                                    {/* <FaPhoneAlt /> */}
+                                    Gender
+                                </span>
+                                <span className='border border-[#bbb] p-2'>{userData?.gender || "N/A"}</span>
+                            </div>
+                        )
+                    }
+                    {
+                        userData?.date_of_birth && (
+                            <div className='flex flex-col'>
+                                <span className='flex items-center gap-1'>
+                                    {/* <FaPhoneAlt /> */}
+                                    Date Of Birth
+                                </span>
+                                <span className='border border-[#bbb] p-2'>{userData?.date_of_birth || "N/A"}</span>
+                            </div>
+                        )
+                    }
+                    {
+                        userData?.date_of_birth && (
+                            <div className='flex flex-col'>
+                                <span className='flex items-center gap-1'>
+                                    {/* <FaPhoneAlt /> */}
+                                    Address
+                                </span>
+                                <span className='border border-[#bbb] p-2'>{userData?.address || "N/A"}</span>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
             <Modal open={open} onClose={onCloseModal} center>

@@ -92,10 +92,12 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                     <div className={`${avatorToggle ? "opacity-100 duration-300" : "opacity-0 duration-300"} p-3 space-y-2  absolute -left-10 z-50 w-44  bg-white border border-[#bbb]`}>
-                                        <div className='cursor-pointer flex items-center gap-1'>
-                                            <span><ImProfile /></span>
-                                            <span>Profile</span>
-                                        </div>
+                                        <Link to={"/profile"}>
+                                            <div className='cursor-pointer flex items-center gap-1'>
+                                                <span><ImProfile /></span>
+                                                <span>Profile</span>
+                                            </div>
+                                        </Link>
                                         <div className='cursor-pointer flex items-center gap-1'>
                                             <span><MdDashboardCustomize /></span>
                                             <span>Dasboard</span>

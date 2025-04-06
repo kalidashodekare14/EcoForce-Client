@@ -17,7 +17,7 @@ const useAuth = () => {
                         Authorization: `Bearer ${token}`
                     }
                 })
-                setUser(res.data)
+                setUser(res.data.data)
             } catch (error) {
                 console.log(error)
             }
