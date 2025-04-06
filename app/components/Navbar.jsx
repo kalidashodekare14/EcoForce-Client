@@ -78,8 +78,8 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <div>
-                    <FaBars onClick={handleToggle} className='lg:hidden' />
+                <div className='flex flex-row-reverse items-center gap-3'>
+                    <FaBars onClick={handleToggle} className='lg:hidden text-[20px]' />
                     <div>
                         {
                             user ? (
@@ -91,7 +91,7 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${avatorToggle ? "opacity-100 duration-300" : "opacity-0 duration-300"} p-3 space-y-2  absolute -left-10 z-50 w-44  bg-white border border-[#bbb]`}>
+                                    <div className={`${avatorToggle ? "opacity-100 block duration-300" : "opacity-0 hidden duration-300"} p-3 space-y-2  absolute lg:-left-10 right-0  z-50 w-44  bg-white border border-[#bbb]`}>
                                         <Link to={"/profile"}>
                                             <div className='cursor-pointer flex items-center gap-1'>
                                                 <span><ImProfile /></span>

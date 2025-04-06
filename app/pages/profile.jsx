@@ -43,7 +43,7 @@ const profile = () => {
 
 
     return (
-        <div className='mx-60'>
+        <div className='lg:mx-60'>
             <div className='border border-[#bbb] rounded-2xl'>
                 <div className='w-full h-40 bg-black'>
                 </div>
@@ -109,7 +109,7 @@ const profile = () => {
                 </div>
             </div>
             <Modal open={open} onClose={onCloseModal} center>
-                <form onSubmit={handleSubmit(onSubmit)} className='w-96 h-96 my-5 space-y-3 overflow-auto'>
+                <form onSubmit={handleSubmit(onSubmit)} className='lg:w-96 h-96 my-5 space-y-3 overflow-auto'>
                     <div className='w-full'>
                         <label htmlFor="">Name</label>
                         <input {...register("name")} className='input border focus:outline-0 border-[#bbb] w-full' placeholder='Enter your name' type="text" />
