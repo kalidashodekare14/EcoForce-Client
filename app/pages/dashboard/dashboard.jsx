@@ -1,14 +1,32 @@
-import React, { useState } from 'react'
-import { FaBars, FaClipboardList, FaCommentDollar, FaHistory } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react'
+import { FaBars, FaClipboardList, FaCommentDollar, FaDollarSign, FaHistory } from 'react-icons/fa'
+import { GiProgression } from 'react-icons/gi'
+import { ImUsers } from 'react-icons/im'
 import { IoMdNotifications } from 'react-icons/io'
+import { MdAssignmentAdd, MdEventNote, MdOutlineStreetview } from 'react-icons/md'
+import { SiGooglecampaignmanager360 } from 'react-icons/si'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, Outlet, useLocation } from 'react-router'
+import { roleData } from '../../Redux/roleSlice'
 
 const dashboard = () => {
 
     const [toggle, setToggle] = useState(false)
     const location = useLocation()
     const pathname = location.pathname
-    const isRole = "Admin"
+    const disPatch = useDispatch()
+    const { isRole, loading, error } = useSelector((state) => state.role)
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        const roleFetched = async () => {
+            disPatch(roleData({ token: token }))
+        }
+        if (token) {
+            roleFetched()
+        }
+    }, [])
 
     const handleToggle = () => {
         setToggle(!toggle)
@@ -39,19 +57,19 @@ const dashboard = () => {
         {
             id: 1,
             name: "Available Events",
-            icon: <FaClipboardList />,
+            icon: <MdEventNote />,
             route: "/dashboard/available_events",
         },
         {
             id: 2,
             name: "My Assigned Events",
-            icon: <FaCommentDollar />,
+            icon: <MdAssignmentAdd />,
             route: "/dashboard/my_assigned_events",
         },
         {
             id: 2,
             name: "Progress Reports",
-            icon: <FaHistory />,
+            icon: <GiProgression />,
             route: "/dashboard/progress_reports",
         }
     ]
@@ -60,19 +78,19 @@ const dashboard = () => {
         {
             id: 1,
             name: "Overview",
-            icon: <FaClipboardList />,
+            icon: <MdOutlineStreetview />,
             route: "/dashboard/overview",
         },
         {
             id: 2,
             name: "Manage Users",
-            icon: <FaCommentDollar />,
+            icon: <ImUsers />,
             route: "/dashboard/manage_users",
         },
         {
             id: 2,
             name: "Event Management",
-            icon: <FaHistory />,
+            icon: <SiGooglecampaignmanager360 />,
             route: "/dashboard/event_management",
         },
         {
@@ -84,7 +102,7 @@ const dashboard = () => {
         {
             id: 2,
             name: "Reports & Analytics",
-            icon: <FaHistory />,
+            icon: <FaDollarSign />,
             route: "/dashboard/report_and_analytics",
         }
     ]

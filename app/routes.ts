@@ -16,7 +16,7 @@ export default [
         route("manage_users", "pages/dashboard/admin/ManageUsers.jsx"),
         route("event_management", "pages/dashboard/admin/EventManagement.jsx"),
         route("donations", "pages/dashboard/admin/Donations.jsx"),
-        route("report_and_analytics", "pages/dashboard/admin/Donations.jsx"),
+        route("report_and_analytics", "pages/dashboard/admin/ReportsAndAnalytics.jsx"),
         // Donor
         route("my_donations", "pages/dashboard/donor/MyDonations.jsx"),
         route("donate_now", "pages/dashboard/donor/DonateNow.jsx"),
