@@ -12,7 +12,11 @@ export default [
     route("dashboard", "pages/dashboard/dashboard.jsx", [
         index("pages/dashboard/home.jsx"),
         // Admin
-        route("overview", ""),
+        route("overview", "pages/dashboard/admin/Overview.jsx"),
+        route("manage_users", "pages/dashboard/admin/ManageUsers.jsx"),
+        route("event_management", "pages/dashboard/admin/EventManagement.jsx"),
+        route("donations", "pages/dashboard/admin/Donations.jsx"),
+        route("report_and_analytics", "pages/dashboard/admin/Donations.jsx"),
         // Donor
         route("my_donations", "pages/dashboard/donor/MyDonations.jsx"),
         route("donate_now", "pages/dashboard/donor/DonateNow.jsx"),
