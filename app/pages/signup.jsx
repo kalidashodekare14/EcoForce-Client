@@ -7,8 +7,10 @@ import Swal from 'sweetalert2'
 
 const signUpPage = () => {
 
-  const navigation = useNavigate()
-  const [loading, setLoading] = useState(false)
+  const navigation = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const genderData = ["Volunteer", "Donor"];
+  const [selectedRole, setSelectedRole] = useState(null)
 
   const {
     register,
@@ -22,7 +24,8 @@ const signUpPage = () => {
     const userInfo = {
       name: data.name,
       email: data.email,
-      password: data.password
+      password: data.password,
+      role: selectedRole
     }
     try {
       setLoading(true)
@@ -65,6 +68,25 @@ const signUpPage = () => {
               <label htmlFor="">Password</label>
               <input {...register("password", { required: true })} className='input focus:outline-0 w-full' type="password" />
               {errors.password && <span className='text-red-500'>Password field is required</span>}
+            </div>
+            <div className='w-full '>
+              <p className='my-2'>How are you?</p>
+              <div className='flex items-center gap-2'>
+                {
+                  genderData.map(gender => (
+                    <div className='flex items-center gap-2'>
+                      <input
+                        type="checkbox"
+                        className="checkbox checkbox-accent"
+                        value={gender}
+                        checked={gender === selectedRole}
+                        onChange={(e) => setSelectedRole(e.target.value)}
+                      />
+                      <span>{gender}</span>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
             <button type='submit' className='btn  bg-[#0077b6] text-white w-32'>
               {

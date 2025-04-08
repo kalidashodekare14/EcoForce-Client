@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
 import { loginUser } from '../Redux/authSlice'
+import { BeatLoader } from 'react-spinners'
 
 const loginPage = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { userData, loading, error } = useSelector((state) => state.auth)
 
   const {
     register,
@@ -43,7 +45,17 @@ const loginPage = () => {
               <input {...register("password", { required: true })} className='input focus:outline-0 w-full' type="password" />
               {errors.password && <span className='text-red-500'>Password field is required</span>}
             </div>
-            <button type='submit' className='btn  bg-[#0077b6] text-white w-32'>Login</button>
+            <button type='submit' className='btn  bg-[#0077b6] text-white w-32'>
+              {loading ? (
+                <BeatLoader
+                  color="#ffffff"
+                  speedMultiplier={1}
+                  size={10}
+                />
+              ) : (
+                "Login"
+              )}
+            </button>
           </div>
           <div className='my-3 space-x-1'>
             <span>Create your account!</span>

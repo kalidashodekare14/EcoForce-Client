@@ -5,6 +5,8 @@ import useAuth from '../hooks/useAuth/useAuth'
 import { ImProfile } from 'react-icons/im'
 import { MdDashboardCustomize } from 'react-icons/md'
 import { IoLogOutOutline } from 'react-icons/io5'
+import { logout } from '../Redux/authSlice'
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
 
@@ -12,7 +14,14 @@ const Navbar = () => {
     const [toggle, setToggle] = useState(false)
     const [isSticky, setIsSticky] = useState(false)
     const [avatorToggle, setAvatorToggle] = useState(false)
-    const pathname = useLocation()
+    const location = useLocation()
+    const pathname = location.pathname
+    const dispatch = useDispatch()
+
+    const hiddenNav = pathname.startsWith("/dashboard")
+
+
+
     const handleToggle = () => {
         setToggle(!toggle)
     }
@@ -20,7 +29,6 @@ const Navbar = () => {
     const handleAvatarToggle = () => {
         setAvatorToggle(!avatorToggle)
     }
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,9 +40,6 @@ const Navbar = () => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
-
-
-
     const navLink = [
         {
             id: 1,
@@ -63,8 +68,13 @@ const Navbar = () => {
         },
     ]
 
+    const handleLogOut = () => {
+        dispatch(logout())
+    }
+
+
     return (
-        <div className={`${isSticky ? "sticky top-0 z-50 bg-[#ffffffb9] shadow-xl backdrop-blur-lg transition-all duration-300 opacity-100" : "bg-white"}`}>
+        <div className={`${hiddenNav && "hidden"} ${isSticky ? "sticky top-0 z-50 bg-[#ffffffb9] shadow-xl backdrop-blur-lg transition-all duration-300 opacity-100" : "bg-white"}`}>
             <nav className={`font-rubik z-50 w-full lg:px-32 px-3 flex justify-between  items-center py-3 font-roboto font-[200]`}>
                 <div className='flex items-center gap-20'>
                     <h1 className='text-3xl'>EcoForce</h1>
@@ -91,18 +101,20 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${avatorToggle ? "opacity-100 block duration-300" : "opacity-0 hidden duration-300"} p-3 space-y-2  absolute lg:-left-10 right-0  z-50 w-44  bg-white border border-[#bbb]`}>
+                                    <div className={`${avatorToggle ? "opacity-100 block duration-300" : "opacity-0 hidden duration-300"} p-3 absolute lg:-left-10 right-0  z-50 w-44  bg-white border border-[#bbb]`}>
                                         <Link to={"/profile"}>
-                                            <div className='cursor-pointer flex items-center gap-1'>
+                                            <div className='cursor-pointer flex items-center gap-1 my-1'>
                                                 <span><ImProfile /></span>
                                                 <span>Profile</span>
                                             </div>
                                         </Link>
-                                        <div className='cursor-pointer flex items-center gap-1'>
-                                            <span><MdDashboardCustomize /></span>
-                                            <span>Dasboard</span>
-                                        </div>
-                                        <div className='cursor-pointer flex items-center gap-1'>
+                                        <Link to={""}>
+                                            <div className='cursor-pointer flex items-center gap-1'>
+                                                <span><MdDashboardCustomize /></span>
+                                                <span>Dasboard</span>
+                                            </div>
+                                        </Link>
+                                        <div onClick={handleLogOut} className='cursor-pointer flex items-center gap-1 my-1'>
                                             <span><IoLogOutOutline /></span>
                                             <span>Log Out</span>
                                         </div>

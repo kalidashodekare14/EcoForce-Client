@@ -9,5 +9,11 @@ export default [
     route("signup", "pages/signup.jsx"),
     route("login", "pages/login.jsx"),
     route("profile", "pages/profile.jsx"),
+    route("dashboard", "pages/dashboard/dashboard.jsx", [
+        index("pages/dashboard/home.jsx"),
+        route('my_donations', "pages/dashboard/donor/MyDonations.jsx"),
+        route('donate_now', "pages/dashboard/donor/DonateNow.jsx"),
+        route('transaction_history', "pages/dashboard/donor/TransactionHistory.jsx"),
+    ])
 
 ] satisfies RouteConfig;

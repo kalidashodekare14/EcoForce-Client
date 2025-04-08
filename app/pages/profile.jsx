@@ -6,7 +6,6 @@ import 'react-responsive-modal/styles.css';
 import useAuth from '../hooks/useAuth/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { profileUpdate, profileData } from '../Redux/profileSlice'
-import { FaPhoneAlt } from 'react-icons/fa';
 
 const profile = () => {
 
