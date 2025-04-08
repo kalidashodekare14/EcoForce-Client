@@ -46,7 +46,7 @@ const dashboard = () => {
             route: "/dashboard/donate_now",
         },
         {
-            id: 2,
+            id: 3,
             name: "Transaction History",
             icon: <FaHistory />,
             route: "/dashboard/transaction_history",
@@ -67,7 +67,7 @@ const dashboard = () => {
             route: "/dashboard/my_assigned_events",
         },
         {
-            id: 2,
+            id: 3,
             name: "Progress Reports",
             icon: <GiProgression />,
             route: "/dashboard/progress_reports",
@@ -88,19 +88,19 @@ const dashboard = () => {
             route: "/dashboard/manage_users",
         },
         {
-            id: 2,
+            id: 3,
             name: "Event Management",
             icon: <SiGooglecampaignmanager360 />,
             route: "/dashboard/event_management",
         },
         {
-            id: 2,
+            id: 4,
             name: " Donations",
             icon: <FaHistory />,
             route: "/dashboard/donations",
         },
         {
-            id: 2,
+            id: 5,
             name: "Reports & Analytics",
             icon: <FaDollarSign />,
             route: "/dashboard/report_and_analytics",
