@@ -11,9 +11,16 @@ export default [
     route("profile", "pages/profile.jsx"),
     route("dashboard", "pages/dashboard/dashboard.jsx", [
         index("pages/dashboard/home.jsx"),
-        route('my_donations', "pages/dashboard/donor/MyDonations.jsx"),
-        route('donate_now', "pages/dashboard/donor/DonateNow.jsx"),
-        route('transaction_history', "pages/dashboard/donor/TransactionHistory.jsx"),
+        // Admin
+        route("overview", ""),
+        // Donor
+        route("my_donations", "pages/dashboard/donor/MyDonations.jsx"),
+        route("donate_now", "pages/dashboard/donor/DonateNow.jsx"),
+        route("transaction_history", "pages/dashboard/donor/TransactionHistory.jsx"),
+        // Volunteer
+        route("available_events", "pages/dashboard/volunteer/AvailableEvents.jsx"),
+        route("my_assigned_events", "pages/dashboard/volunteer/MyAssignedEvents.jsx"),
+        route("progress_reports", "pages/dashboard/volunteer/ProgressReports.jsx"),
     ])
 
 ] satisfies RouteConfig;

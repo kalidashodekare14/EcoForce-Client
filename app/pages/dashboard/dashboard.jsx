@@ -8,12 +8,13 @@ const dashboard = () => {
     const [toggle, setToggle] = useState(false)
     const location = useLocation()
     const pathname = location.pathname
+    const isRole = "Volunteer"
 
     const handleToggle = () => {
         setToggle(!toggle)
     }
 
-    const dashboardNav = [
+    const donorNav = [
         {
             id: 1,
             name: "My Donations",
@@ -34,6 +35,27 @@ const dashboard = () => {
         }
     ]
 
+    const volunteerNav = [
+        {
+            id: 1,
+            name: "Available Events",
+            icon: <FaClipboardList />,
+            route: "/dashboard/available_events",
+        },
+        {
+            id: 2,
+            name: "My Assigned Events",
+            icon: <FaCommentDollar />,
+            route: "/dashboard/my_assigned_events",
+        },
+        {
+            id: 2,
+            name: "Progress Reports",
+            icon: <FaHistory />,
+            route: "/dashboard/progress_reports",
+        }
+    ]
+
     return (
         <div className='flex'>
             <div className={`absolute lg:static lg:translate-y-0 lg:translate-x-0  ${toggle ? "translate-x-0 translate-y-[70px] duration-300" : "-translate-x-full translate-y-[70px] duration-300"}  bg-white w-52 border border-[#bbb] h-screen`}>
@@ -42,14 +64,28 @@ const dashboard = () => {
                 </div>
                 <div className='flex flex-col space-y-1'>
                     {
-                        dashboardNav.map(navi => (
-                            <Link key={navi.id} to={navi.route}>
-                                <div className={`${pathname === navi.route && "hover:bg-none bg-[#0077b6] text-white"} flex items-center gap-1 p-1 hover:bg-[#0077b6] hover:text-white`}>
-                                    <span>{navi.icon}</span>
-                                    <span className=''>{navi.name}</span>
-                                </div>
-                            </Link>
-                        ))
+                        isRole === "Donor" && (
+                            donorNav.map(navi => (
+                                <Link key={navi.id} to={navi.route}>
+                                    <div className={`${pathname === navi.route && "hover:bg-none bg-[#0077b6] text-white"} flex items-center gap-1 p-1 hover:bg-[#0077b6] hover:text-white`}>
+                                        <span>{navi.icon}</span>
+                                        <span className=''>{navi.name}</span>
+                                    </div>
+                                </Link>
+                            ))
+                        )
+                    }
+                    {
+                        isRole === "Volunteer" && (
+                            volunteerNav.map(navi => (
+                                <Link key={navi.id} to={navi.route}>
+                                    <div className={`${pathname === navi.route && "hover:bg-none bg-[#0077b6] text-white"} flex items-center gap-1 p-1 hover:bg-[#0077b6] hover:text-white`}>
+                                        <span>{navi.icon}</span>
+                                        <span className=''>{navi.name}</span>
+                                    </div>
+                                </Link>
+                            ))
+                        )
                     }
                 </div>
             </div>

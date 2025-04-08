@@ -11,6 +11,7 @@ const signUpPage = () => {
   const [loading, setLoading] = useState(false);
   const genderData = ["Volunteer", "Donor"];
   const [selectedRole, setSelectedRole] = useState(null)
+  console.log('check role', selectedRole)
 
   const {
     register,
