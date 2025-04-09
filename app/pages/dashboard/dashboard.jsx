@@ -109,7 +109,7 @@ const dashboard = () => {
 
     return (
         <div className='flex'>
-            <div className={`absolute lg:static lg:translate-y-0 lg:translate-x-0  ${toggle ? "translate-x-0 translate-y-[70px] duration-300" : "-translate-x-full translate-y-[70px] duration-300"}  bg-white w-52 border border-[#bbb] h-screen`}>
+            <div className={`absolute lg:static z-50 lg:translate-y-0 lg:translate-x-0  ${toggle ? "translate-x-0 translate-y-[70px] duration-300" : "-translate-x-full translate-y-[70px] duration-300"}  bg-white w-52 border border-[#bbb] h-screen`}>
                 <div className='text-center p-3'>
                     <h1 className='text-2xl'>EcoForce</h1>
                 </div>
