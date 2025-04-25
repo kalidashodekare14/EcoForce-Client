@@ -40,6 +40,7 @@ const authSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.loading = false
                 state.userData = action.payload
+                state.error = null
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -50,7 +51,7 @@ const authSlice = createSlice({
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false,
-                    state.error = action.error.message
+                    state.error = action.payload.message
             })
     }
 })

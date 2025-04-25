@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useAuth = () => {
 
@@ -17,14 +17,13 @@ const useAuth = () => {
                         Authorization: `Bearer ${token}`
                     }
                 })
+                console.log('checking email data', res.data.data)
                 setUser(res.data.data)
             } catch (error) {
                 console.log(error)
             }
         }
-        if (token) {
-            authenticationFetched()
-        }
+        authenticationFetched()
 
     }, [user])
 

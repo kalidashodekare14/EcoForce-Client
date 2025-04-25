@@ -19,7 +19,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     const hiddenNav = pathname.startsWith("/dashboard")
-
+    console.log('checking email', user)
 
 
     const handleToggle = () => {

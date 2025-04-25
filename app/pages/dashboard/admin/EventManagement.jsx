@@ -7,6 +7,7 @@ import useAuth from '../../../hooks/useAuth/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { eventsManagementDataCreate, eventsManagementFetched } from '../../../Redux/adminDashboard/eventsManagementSlice'
 import { RotatingLines } from 'react-loader-spinner';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
 const image_hosting_key = import.meta.env.VITE_HOSTING_API_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -124,13 +125,16 @@ const EventManagement = () => {
                                         <td>{events?.location}</td>
                                         <td>{events?.date_and_time}</td>
                                         <td>
-                                            <div>
-
+                                            <div className="dropdown dropdown-end">
+                                                <div tabIndex={0} role="button" className="btn m-1"><BsThreeDotsVertical /></div>
+                                                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                                    <li><a>Item 1</a></li>
+                                                    <li><a>Item 2</a></li>
+                                                </ul>
                                             </div>
                                         </td>
                                     </tr>
                                 ))
-
                             ) : (
                                 <tr>
                                     <th></th>

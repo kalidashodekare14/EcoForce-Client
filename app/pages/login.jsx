@@ -11,6 +11,8 @@ const loginPage = () => {
   const navigate = useNavigate()
   const { userData, loading, error } = useSelector((state) => state.auth)
 
+  console.log('checking', error)
+
   const {
     register,
     handleSubmit,
@@ -57,6 +59,7 @@ const loginPage = () => {
               )}
             </button>
           </div>
+          <h1 className='text-red-500'>{error}</h1>
           <div className='my-3 space-x-1'>
             <span>Create your account!</span>
             <Link to={"/signup"}><span className='text-[#0077b6]'>SignUp</span></Link>
