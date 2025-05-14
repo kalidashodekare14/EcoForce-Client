@@ -1,17 +1,19 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router'
 import { BeatLoader, FadeLoader } from 'react-spinners'
 import Swal from 'sweetalert2'
+import { authContext } from '../AuthProvider/AuthProvider'
 
 const signUpPage = () => {
 
+  const { user, loading, setLoading, registrationSystem } = useContext(authContext)
   const navigation = useNavigate();
-  const [loading, setLoading] = useState(false);
   const genderData = ["Volunteer", "Donor"];
   const [selectedRole, setSelectedRole] = useState(null)
-  console.log('check role', selectedRole)
+
+  console.log('checking loading', loading)
 
   const {
     register,
@@ -28,25 +30,36 @@ const signUpPage = () => {
       password: data.password,
       role: selectedRole
     }
-    try {
-      setLoading(true)
-      const res = await axios.post('http://localhost:5000/api/user/register', userInfo)
-      console.log(res.data)
-      if (res.data.success === true) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your registration successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        navigation('/login')
-      }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setLoading(false)
-    }
+
+
+    registrationSystem(data.email, data.password)
+      .then(async (res) => {
+        console.log(res.user)
+        try {
+          setLoading(true)
+          const res = await axios.post('http://localhost:5000/api/user/register', userInfo)
+          console.log(res.data)
+          if (res.data.success === true) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your registration successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigation('/login')
+          }
+        } catch (error) {
+          console.log(error)
+        } finally {
+          setLoading(false)
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+
   }
 
   return (

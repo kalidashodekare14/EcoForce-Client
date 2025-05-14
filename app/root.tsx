@@ -11,7 +11,9 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { Provider } from "react-redux";
 import store from './Redux/store.js';
+import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import Navbar from './components/Navbar';
+
 
 
 export const links: Route.LinksFunction = () => [
@@ -37,10 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Provider store={store}>
-          <Navbar />
-          {children}
-        </Provider>
+        <AuthProvider>
+          <Provider store={store}>
+            <Navbar />
+            {children}
+          </Provider>
+        </AuthProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
