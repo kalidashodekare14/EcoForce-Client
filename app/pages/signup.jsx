@@ -12,6 +12,7 @@ const signUpPage = () => {
   const navigation = useNavigate();
   const genderData = ["Volunteer", "Donor"];
   const [selectedRole, setSelectedRole] = useState(null)
+  const [rollError, setRollError] = useState(false)
 
   console.log('checking loading', loading)
 
@@ -31,6 +32,11 @@ const signUpPage = () => {
       role: selectedRole
     }
 
+    if (selectedRole === null) {
+      return setRollError(true)
+    } else {
+      setRollError(false)
+    }
 
     registrationSystem(data.email, data.password)
       .then(async (res) => {
@@ -51,15 +57,15 @@ const signUpPage = () => {
           }
         } catch (error) {
           console.log(error)
+          setLoading(false)
         } finally {
           setLoading(false)
         }
       })
       .catch(error => {
         console.log(error)
+        setLoading(false)
       })
-
-
   }
 
   return (
@@ -84,7 +90,7 @@ const signUpPage = () => {
               {errors.password && <span className='text-red-500'>Password field is required</span>}
             </div>
             <div className='w-full '>
-              <p className='my-2'>How are you?</p>
+              <p className='my-2'>Who are you?</p>
               <div className='flex items-center gap-2'>
                 {
                   genderData.map(gender => (
@@ -101,6 +107,9 @@ const signUpPage = () => {
                   ))
                 }
               </div>
+              {
+                rollError && <span className='text-red-500'>Please select who you are</span>
+              }
             </div>
             <button type='submit' className='btn  bg-[#0077b6] text-white w-32'>
               {
